@@ -25,11 +25,11 @@ public class WeeklySales {
         
         for (i = 0; i < size; i++){
             System.out.print ("\nSales "+i+1);
-            System.out.print ("\n\tFirst Name \t:");
+            System.out.print ("\n\tFirst Name\t: ");
             f = scan.next();
-            System.out.print ("\tLast Name \t:");
+            System.out.print ("\tLast Name\t: ");
             l = scan.next();
-            System.out.print ("\tTotal Sales \t:");
+            System.out.print ("\tTotal Sales\t: ");
             sales = scan.nextInt();
             
             //Deklarasi

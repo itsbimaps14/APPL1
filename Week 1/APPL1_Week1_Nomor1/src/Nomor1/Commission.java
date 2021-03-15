@@ -8,10 +8,11 @@ package Nomor1;
 
 /**
  *
- * Author = Bima Putra S | 191524038 | D4-1B "2019
+ *
+ * Author = Lewis/Loftus edited by Bima Putra S | 191524038 | D4-1B "2019
  * Politeknik Negeri Bandung
- * Tanggal :
- * Deskripsi :
+ * Tanggal : 15 Maret 2021
+ * Deskripsi : Commision class. 
  */
 
 public class Commission extends Hourly{
@@ -20,7 +21,7 @@ public class Commission extends Hourly{
     
     public Commission(String eName, String eAddress, String ePhone, String socSecNumber, double rate, double cRate) {
         super(eName, eAddress, ePhone, socSecNumber, rate);
-        cRate = commsRate;
+        commsRate = cRate;
     }
     
     public void addSales(double totalSales){
