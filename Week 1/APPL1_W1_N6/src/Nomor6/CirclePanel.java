@@ -21,6 +21,7 @@ public class CirclePanel extends JPanel{
     private final int CIRCLE_SIZE = 50;
     private int x,y;
     private Color c;
+    JButton warna = new JButton("Choose Color");
     
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
@@ -56,6 +57,36 @@ public class CirclePanel extends JPanel{
         
         // Add the button panel to the bottom of the main panel
         this.add(buttonPanel, "South");
+        
+        // (Nomor 1) Membuat button dan memberi nama labeh buttonnya.
+        JButton cyan = new JButton("Cyan");
+        JButton magenta = new JButton("Ungu");
+        JButton orange = new JButton("Orange");
+        JButton white = new JButton("White");
+        
+        // (Pertanyaan 1) Menambahkan action event listeners ke object button
+        cyan.addActionListener(new ColorListener(Color.cyan));
+        magenta.addActionListener(new ColorListener(Color.magenta));
+        warna.addActionListener(new ColorListener(null));
+        orange.addActionListener(new ColorListener(Color.orange));
+        white.addActionListener(new ColorListener(Color.white));
+        
+        // (Pertanyaan 2) Set Warna Background
+        cyan.setBackground(Color.cyan);
+        magenta.setBackground(Color.magenta);
+        orange.setBackground(Color.orange);
+        white.setBackground(Color.white);
+        
+        // Buat panel agar tidak saling timpa
+        JPanel buttonPanelColor = new JPanel();
+        buttonPanelColor.add(cyan);
+        buttonPanelColor.add(magenta);
+        buttonPanelColor.add(warna);
+        buttonPanelColor.add(orange);
+        buttonPanelColor.add(white);
+        
+        // Tambah panel dibagian atas (North)
+        this.add(buttonPanelColor, "North");
     }
     
     //---------------------------------------------------------------
@@ -88,6 +119,35 @@ public class CirclePanel extends JPanel{
         public void actionPerformed(ActionEvent e){
             x += dx;
             y += dy;
+            repaint();
+        }
+    }
+    
+    //---------------------------------------------------------------
+    // Class to listen for button clicks that change color of the circle.
+    //---------------------------------------------------------------
+    private class ColorListener implements ActionListener{
+        private Color color;
+        //---------------------------------------------------------------
+        // Parameters tell how to move circle at click.
+        //---------------------------------------------------------------
+        public ColorListener(Color a){
+            this.color = a;
+        }
+        //---------------------------------------------------------------
+        // (Pertanyaan 3)
+        // (Select Manual Warna)
+        //---------------------------------------------------------------
+        public void actionPerformed(ActionEvent e){
+            // Jika warna ada c nya di isi pilihan
+            if(color != null){
+                c = color;
+            }
+            // Jika parameter null = milih warna, gunakan JColorChooser
+            else{
+                c = JColorChooser.showDialog(warna, "JColorChooser", c);
+            }
+            
             repaint();
         }
     }
