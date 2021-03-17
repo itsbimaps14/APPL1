@@ -40,7 +40,7 @@ public class IntegerListTest{
     public static void dispatch(int choice){
         int loc;
         int val;
-        long time1, time2;
+        long time_awal, time_akhir;
 
         switch(choice){
             case 0:
