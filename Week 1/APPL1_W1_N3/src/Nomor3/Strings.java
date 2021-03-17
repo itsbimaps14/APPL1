@@ -11,6 +11,9 @@ import java.util.Scanner;
  *
  * @author Bima
  */
+
+// Nomor 3 - b (Class String.java yang berfungsi untuk mengurutkan Object String)
+
 public class Strings {
     public static void main(String[] args) {
         // TODO code application logic here
@@ -19,18 +22,18 @@ public class Strings {
         
         Scanner scan = new Scanner(System.in);
         
-        System.out.print ("\nHow many string do you want to sort? ");
+        System.out.print ("\nBerapa jumlah string list yang dimasukkan : ");
         size = scan.nextInt();
         strList = new String[size];
         
-        System.out.println ("\nEnter the string...");
+        System.out.println ("\nMasukkan string yg akan diurutkan : .");
         for (int i = 0; i < size; i++){
             strList[i] = scan.next();
         }
         
         Sorting.insertionSort(strList);
         
-        System.out.println ("\nYour numbers in sorted order...");
+        System.out.println ("\nString setelah diurutkan : ");
         for (int i = 0; i < size; i++){
             System.out.print(strList[i] + " ");
         }

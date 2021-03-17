@@ -11,27 +11,28 @@ import java.util.Scanner;
  *
  * @author Bima
  */
+
+// Nomor 3 - a (Class Number.java yang berfungsi untuk mengurutkan Array of Integer)
 public class Numbers {
     public static void main(String[] args) {
         // TODO code application logic here
-        // Perubahan int menjadi integer
         Integer[] intList;
         int size;
         
         Scanner scan = new Scanner(System.in);
         
-        System.out.print ("\nHow many integers do you want to sort? ");
+        System.out.print ("\nBerapa jumlah array list yang dimasukkan : ");
         size = scan.nextInt();
         intList = new Integer[size];
         
-        System.out.println ("\nEnter the numbers...");
+        System.out.println ("\nMasukkan angka yg akan diurutkan : ");
         for (int i = 0; i < size; i++){
             intList[i] = scan.nextInt();
         }
         
         Sorting.insertionSort(intList);
         
-        System.out.println ("\nYour numbers in sorted order...");
+        System.out.println ("\nAngka setelah diurutkan : ");
         for (int i = 0; i < size; i++){
             System.out.print(intList[i] + " ");
         }

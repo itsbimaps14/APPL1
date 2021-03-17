@@ -11,6 +11,7 @@ import java.util.Scanner;
  *
  * @author Bima
  */
+
 public class WeeklySales {
     public static void main(String[] args){
         int i, size, sales;

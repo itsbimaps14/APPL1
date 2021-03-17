@@ -70,31 +70,43 @@ public class IntegerListTest{
             case 5:
                 System.out.print("Enter the value to look for: ");
                 val = scan.nextInt();
+                time_awal = System.currentTimeMillis();
                 loc = list.linearSearch(val);
+                time_akhir = System.currentTimeMillis();
                 if (loc != -1)
                     System.out.println("Found at location " + loc);
                 else
                     System.out.println("Not in list");
+                System.out.println("Waktu yang dibutuhkan : " + (time_akhir - time_awal));
                 break;
 
             case 6:
                 System.out.print("Enter the value to look for: ");
                 val = scan.nextInt();
+                time_awal = System.currentTimeMillis();
                 loc = list.binarySearch(val);
+                time_akhir = System.currentTimeMillis();
                 if (loc != -1)
                     System.out.println("Found at location " + loc);
                 else
                     System.out.println("Not in list");
+                System.out.println("Waktu yang dibutuhkan : " + (time_akhir - time_awal));
                 break;
 
             case 7:
+                time_awal = System.currentTimeMillis();
                 list.sortIncreasing();
+                time_akhir = System.currentTimeMillis();
                 System.out.println("List has been sorted.");
+                System.out.println("Waktu yang dibutuhkan : " + (time_akhir - time_awal));
                 break;
 
             case 8:
+                time_awal = System.currentTimeMillis();
                 list.sortDecreasing();
+                time_akhir = System.currentTimeMillis();
                 System.out.println("List has been sorted.");
+                System.out.println("Waktu yang dibutuhkan : " + (time_akhir - time_awal));
                 break;
 
             default:
