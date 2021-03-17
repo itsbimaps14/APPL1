@@ -72,9 +72,48 @@ public class IntegerList{
     // sortIncreasing -- uses selection sort
     //------------------------------------------------------------
     public void sortIncreasing(){
-        for (int i=0; i<list.length-1; i++){
-            int minIndex = minIndex(list, i);
-            swap(list, i, minIndex);
+        int min, temp;
+        for (int index = 0; index < list.length-1; index++){
+            min = index;
+            for (int scan = index + 1; scan < list.length; scan++)
+               if (list[scan] < list[min])
+                  min = scan;
+        
+         // Swap the values
+            temp = list[min];
+            list[min] = list[index];
+            list[index] = temp;
+        
         }
     } 
+
+    void sortDecreasing() {
+        for (int index = 1; index < list.length; index++){
+            int key = list[index];
+            int position = index;
+        
+            //  Shift larger values to the right
+            while (position > 0 && key > (list[position-1])){
+               list[position] = list[position-1];
+               position--;
+            }
+            
+            list[position] = key;
+         }
+    }
+    
+    public int binarySearch (int target){
+        int first = 0, middle, last = list.length-1;
+        while (first <= last){
+            middle = (first + last)/2;
+            if (list[middle] == target){
+               return middle;
+            }
+            else if (list[middle] < target)
+               first = middle + 1;
+            else
+               last = middle - 1;
+        }  // end of while
+        return -1;
+     }
 }

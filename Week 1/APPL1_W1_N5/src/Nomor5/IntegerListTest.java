@@ -114,11 +114,11 @@ public class IntegerListTest{
         System.out.println("4: Fill the list with already sorted elements");
         System.out.println("5: Use linear search to find an element");
         System.out.println("6: Use binary search to find an element " +
-        "(list must be sorted in increasing order)");
+            "(list must be sorted in increasing order)");
         System.out.println("7: Use selection sort to sort the list into " +
-        " increasing order");
+            " increasing order");
         System.out.println("8: Use insertion sort to sort the list into " +
-        " decreasing order");
+            " decreasing order");
         System.out.print("\nEnter your choice: ");
     }
 }
