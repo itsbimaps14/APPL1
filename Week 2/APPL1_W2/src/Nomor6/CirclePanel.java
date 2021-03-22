@@ -21,42 +21,59 @@ import java.awt.event.*;
 
 public class CirclePanel extends JPanel{
     private final int CIRCLE_SIZE = 50;
-private int x,y;
-private Color c;
-//---------------------------------------------------------------
-// Set up circle and buttons to move it.
-//---------------------------------------------------------------
-public CirclePanel(int width, int height){
-    // Set coordinates so circle starts in middle
-    x = (width/2)-(CIRCLE_SIZE/2);
-    y = (height/2)-(CIRCLE_SIZE/2);
-    c = Color.green;
-    
-    // Need a border layout to get the buttons on the bottom
-    this.setLayout(new BorderLayout());
+    private int x,y;
+    private Color c;
+    int panelWidth, panelHeight;
     
     // Create buttons to move the circle
+    // Dipindahin ke atas biar actionListener bisa modify object button
     JButton left = new JButton("Left");
     JButton right = new JButton("Right");
     JButton up = new JButton("Up");
     JButton down = new JButton("Down");
     
-    // Add listeners to the buttons
-    left.addActionListener(new MoveListener(-20,0));
-    right.addActionListener(new MoveListener(20,0));
-    up.addActionListener(new MoveListener(0,-20));
-    down.addActionListener(new MoveListener(0,20));
-    
-    // Need a panel to put the buttons on or they'll be on
-    // top of each other.
-    JPanel buttonPanel = new JPanel();
-    buttonPanel.add(left);
-    buttonPanel.add(right);
-    buttonPanel.add(up);
-    buttonPanel.add(down);
-    
-    // Add the button panel to the bottom of the main panel
-    this.add(buttonPanel, "South");
+    //---------------------------------------------------------------
+    // Set up circle and buttons to move it.
+    //---------------------------------------------------------------
+    public CirclePanel(int width, int height){
+        // Set coordinates so circle starts in middle
+        x = (width/2)-(CIRCLE_SIZE/2);
+        y = (height/2)-(CIRCLE_SIZE/2);
+        c = Color.green;
+        panelHeight = height;
+        panelWidth = width;
+
+        // Need a border layout to get the buttons on the bottom
+        this.setLayout(new BorderLayout());
+
+        // Add listeners to the buttons
+        left.addActionListener(new MoveListener(-20,0));
+        right.addActionListener(new MoveListener(20,0));
+        up.addActionListener(new MoveListener(0,-20));
+        down.addActionListener(new MoveListener(0,20));
+
+        // Need a panel to put the buttons on or they'll be on
+        // top of each other.
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(left);
+        buttonPanel.add(right);
+        buttonPanel.add(up);
+        buttonPanel.add(down);
+
+        //Add Mnemonic
+        left.setMnemonic(KeyEvent.VK_L);
+        up.setMnemonic(KeyEvent.VK_U);
+        right.setMnemonic(KeyEvent.VK_R);
+        down.setMnemonic(KeyEvent.VK_D);
+
+        //Add Tooltip
+        left.setToolTipText("Move circle left 20 px");
+        up.setToolTipText("Move circle up 20 px");
+        right.setToolTipText("Move circle right 20 px");
+        down.setToolTipText("Move circle down 20 px");
+
+        // Add the button panel to the bottom of the main panel
+        this.add(buttonPanel, "South");
     }
 
     //---------------------------------------------------------------
@@ -90,6 +107,38 @@ public CirclePanel(int width, int height){
             x += dx;
             y += dy;
             repaint();
+            
+            // Check batas kiri ketika action dilakukan
+            if(x - CIRCLE_SIZE < 0){
+                left.setEnabled(false);
+            }
+            else{
+                left.setEnabled(true);
+            }
+            
+            // Check batas kanan ketika action dilakukan
+            if(x + CIRCLE_SIZE > panelWidth){
+                right.setEnabled(false);
+            }
+            else{
+                right.setEnabled(true);
+            }
+            
+            // Check batas atas ketika action dilakukan
+            if(y - CIRCLE_SIZE < 0){
+                up.setEnabled(false);
+            }
+            else{
+                up.setEnabled(true);
+            }
+            
+            // Check batas bawah ketika action dilakukan
+            if(y + CIRCLE_SIZE > panelHeight){
+                down.setEnabled(false);
+            }
+            else{
+                down.setEnabled(true);
+            }
         }
     }
 }
