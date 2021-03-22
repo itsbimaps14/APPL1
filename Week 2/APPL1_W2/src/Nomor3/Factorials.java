@@ -34,4 +34,4 @@ public class Factorials {
             keepGoing = scan.next();
         }
     }
-}
+} 
