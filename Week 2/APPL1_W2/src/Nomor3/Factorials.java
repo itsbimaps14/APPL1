@@ -22,9 +22,14 @@ public class Factorials {
         Scanner scan = new Scanner(System.in);
         
         while (keepGoing.equals("y") || keepGoing.equals("Y")){
-        System.out.print("Enter an integer: ");
+            System.out.print("Enter an integer: ");
             int val = scan.nextInt();
-            System.out.println("Factorial(" + val + ") = " + MathUtils.factorial(val));
+            try{
+                System.out.println("Factorial(" + val + ") = "+ MathUtils.factorial(val));
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
             System.out.print("Another factorial? (y/n) ");
             keepGoing = scan.next();
         }
