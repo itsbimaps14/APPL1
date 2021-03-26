@@ -20,22 +20,19 @@ public class ParseInts {
     public static void main(String[] args){
         int val, sum=0;
         Scanner scan = new Scanner(System.in);
-        String line;
         
-        System.out.println("Enter a line of text");
-        Scanner scanLine = new Scanner(scan.nextLine());
+        System.out.println("Masukkan kalimat : ");
+        Scanner input = new Scanner(scan.nextLine());
         
-        while (scanLine.hasNext()){
-            val = Integer.parseInt(scanLine.next());
-            sum += val;
+        while (input.hasNext()){
             try{
-                val = Integer.parseInt(scanLine.next());
+                val = Integer.parseInt(input.next());
                 sum += val;
             }
             catch (Exception e){
                 //Do Nothing
             }
         }
-        System.out.println("The sum of the integers on this line is " + sum);
+        System.out.println("Total integer pada String diatas : " + sum);
     }
 }
