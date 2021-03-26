@@ -22,14 +22,14 @@ public class CountLetters {
         
         Scanner scan = new Scanner(System.in);
         
-        //get word from user
+        // Ambil inputan dari user
         System.out.print("Enter a single word (letters only, please): ");
         String word = scan.nextLine();
         
-        //convert to all upper case
+        // Convert to UPPERCASE
         word = word.toUpperCase();
         
-        //count frequency of each letter in string
+        // Menghitung masing masing Karakter
         try{
             for (int i=0; i < word.length(); i++)
                 counts[word.charAt(i)-'A']++;
