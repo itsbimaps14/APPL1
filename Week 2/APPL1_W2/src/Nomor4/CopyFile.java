@@ -25,7 +25,7 @@ public class CopyFile {
         // Scanner input file
         Scanner input = new Scanner(System.in);
         
-        // Check file ada . tidak
+        // Check file ada / tidak
         Scanner in = null;
         while(!found){
             System.out.println("\nMasukkan Address File : ");
@@ -47,8 +47,7 @@ public class CopyFile {
         // Membaca file
         int linenum = 1;
         while(in.hasNext()){
-            System.out.println("line " + linenum + " : " 
-            + in.nextLine());
+            System.out.println("line " + linenum + " : " + in.nextLine());
             linenum++;
         }
     }
