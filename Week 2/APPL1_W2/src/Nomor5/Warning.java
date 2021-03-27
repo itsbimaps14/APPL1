@@ -40,7 +40,7 @@ public class Warning{
         try{
             // Set up scanner to input file
             inputFile = new File(address + inputName);
-            Scanner input = new Scanner(inputFile);
+            Scanner scan = new Scanner(inputFile);
 
             // Set up the output file stream
             fileWriter = new FileWriter(address + outputName);
@@ -50,29 +50,34 @@ public class Warning{
             outFile.println ("Students on Academic Warning\n");
 
             // Process the input file, one token at a time
-            while (input.hasNext()){
-                line = input.nextLine();
+            while (scan.hasNext()){
+                line = scan.nextLine();
                 name = line.split("\\s")[0];
+                
+                // Hitung GPA
                 creditHrs =  Integer.parseInt(line.split("\\s")[1]);
                 qualityPts = Double.parseDouble(line.split("\\s")[2]);
-
                 gpa = qualityPts/creditHrs;
-
+                
+                // Check GPA if Warning
                 if(gpa < 1.5 && creditHrs < 30){
-                    outFile.println(name + " " + Integer.toString(creditHrs) + " " + Double.toString(gpa));
+                    outFile.println(name + " " + Integer.toString(creditHrs) 
+                            + " " + Double.toString(gpa));
                 }
                 else if(gpa < 1.75 && creditHrs < 60){
-                    outFile.println(name + " " + Integer.toString(creditHrs) + " " + Double.toString(gpa));
+                    outFile.println(name + " " + Integer.toString(creditHrs) 
+                            + " " + Double.toString(gpa));
                 }
                 else if(gpa < 2){
-                    outFile.println(name + " " + Integer.toString(creditHrs) + " " + Double.toString(gpa));
+                    outFile.println(name + " " + Integer.toString(creditHrs) 
+                            + " " + Double.toString(gpa));
                 }
 
             }
             outFile.close();
         }
         catch (FileNotFoundException exception){
-            System.out.println ("The file " + inputName + " was not found.");
+            System.out.println ("File " + inputName + " tidak ditemukan.");
         }
         catch (IOException exception){
             System.out.println (exception);
