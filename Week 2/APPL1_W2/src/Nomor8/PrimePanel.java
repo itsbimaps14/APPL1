@@ -67,6 +67,8 @@ public class PrimePanel extends JPanel{
             String ans = "";
             int count = 0;
             String textNum = number.getText();
+            
+            // Cek Input integer atau bukan
             try{
                 num = Integer.parseInt (textNum);
             }
