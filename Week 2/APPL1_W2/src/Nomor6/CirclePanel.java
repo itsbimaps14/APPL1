@@ -60,13 +60,13 @@ public class CirclePanel extends JPanel{
         buttonPanel.add(up);
         buttonPanel.add(down);
 
-        //Add Mnemonic
+        // Add Mnemonic - ke object button
         left.setMnemonic(KeyEvent.VK_L);
         up.setMnemonic(KeyEvent.VK_U);
         right.setMnemonic(KeyEvent.VK_R);
         down.setMnemonic(KeyEvent.VK_D);
 
-        //Add Tooltip
+        // Add Tooltip - ke object button
         left.setToolTipText("Move circle left 20 px");
         up.setToolTipText("Move circle up 20 px");
         right.setToolTipText("Move circle right 20 px");
